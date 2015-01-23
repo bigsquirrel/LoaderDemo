@@ -22,7 +22,7 @@
 
         <provider
             android:name=".MyContentProvider"
-            android:authorities="content://com.ivanchou.loaderdemo/user"
+            android:authorities="com.ivanchou.loaderdemo.MyContentProvider"
             android:enabled="true"
             android:exported="true" >
         </provider>

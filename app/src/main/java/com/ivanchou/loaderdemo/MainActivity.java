@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Uri uri = Uri.parse("content://contacts/people");
+            Uri uri = Uri.parse("content://com.ivanchou.loaderdemo.MyContentProvider/user");
 
             return new CursorLoader(MainActivity.this, uri, null, null, null, null);
         }
@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
             list.clear();
             while (data.moveToNext()) {
                 Map<String, String> map = new HashMap<String, String>();
-                String id = data.getString(data.getColumnIndex("_id"));
+                String id = data.getString(data.getColumnIndex("id"));
                 String name = data.getString(data.getColumnIndex("name"));
 
                 map.put("id", id);
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
                     public void onClick(DialogInterface dialog, int which) {
                         EditText etName = (EditText) v.findViewById(R.id.et_name);
                         String name = etName.getText().toString();
-                        Uri uri = Uri.parse("content://contacts/people");
+                        Uri uri = Uri.parse("content://com.ivanchou.loaderdemo.MyContentProvider/user");
                         ContentValues cv = new ContentValues();
                         cv.put("name", name);
 
